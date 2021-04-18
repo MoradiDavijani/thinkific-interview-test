@@ -13,7 +13,7 @@
 .dayHours::after,
 .dayHours::before {
   content: '';
-  flex: 0 0 2rem;
+  flex: 1 0 2rem;
 }
 
 .dayHours__item {

@@ -1,12 +1,14 @@
 /* Variables */
 [data-theme='light'] {
   --primary-color: #f2fbff;
+  --secondary-color: #ffffff;
   --accent-color: #d1e4f7;
   --font-color: #424242;
 }
 
 [data-theme='dark'] {
   --primary-color: #11113a;
+  --secondary-color: #121212;
   --accent-color: #313061;
   --font-color: #ffffff;
 }
@@ -21,6 +23,7 @@ div#__next {
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: var(--primary-color);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;

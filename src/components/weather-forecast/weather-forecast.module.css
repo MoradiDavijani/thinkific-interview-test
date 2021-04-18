@@ -4,3 +4,55 @@
   align-items: center;
   flex: 1;
 }
+
+.weatherForecast__daysList {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.weatherForecast__dayItem {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+.weatherForecast__dayItem_selected {
+  display: flex;
+}
+
+.weatherForecast__dayItemTitle {
+  display: none;
+}
+
+@media (min-width: 48rem) {
+  .weatherForecast__daysList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    padding: 0 1rem 1rem;
+    max-width: 100%;
+  }
+
+  .weatherForecast__dayItem {
+    display: flex;
+    background-color: var(--secondary-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 2px 2px 0.5rem 0 var(--font-color);
+  }
+
+  .weatherForecast__dayItemTitle {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 70rem) {
+  .weatherForecast__daysList {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

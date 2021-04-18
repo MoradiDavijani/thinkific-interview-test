@@ -19,6 +19,7 @@
 
 .splash__logo {
   width: 30%;
+  max-width: 10rem;
   margin-bottom: 5rem;
 }
 

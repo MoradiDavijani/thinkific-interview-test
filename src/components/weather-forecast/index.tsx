@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 import type {
   ForecastDay,
   ForecastDayItem,
@@ -33,17 +34,32 @@ function WeatherForecast({ isNightTime, forecastDays }: WeatherForecastProps) {
         forecastDays={forecastDays}
         onSelect={setSelectedDay}
       />
-      <DayHours
-        isNightTime={isNightTime}
-        selectedDayItem={selectedDayItem}
-        forecastDayItems={selectedDay.items}
-        onSelect={setSelectedDayItem}
-      />
-      <RainChanceGraph
-        isNightTime={isNightTime}
-        forecastDayItems={selectedDay.items}
-        selectedDayItem={selectedDayItem}
-      />
+      <ul className={styles.weatherForecast__daysList}>
+        {forecastDays.map(forecastDay => (
+          <li
+            key={forecastDay.title}
+            className={classnames(styles.weatherForecast__dayItem, {
+              [styles.weatherForecast__dayItem_selected]:
+                forecastDay === selectedDay
+            })}
+          >
+            <h2 className={styles.weatherForecast__dayItemTitle}>
+              {forecastDay.title}
+            </h2>
+            <DayHours
+              isNightTime={isNightTime}
+              selectedDayItem={selectedDayItem}
+              forecastDayItems={forecastDay.items}
+              onSelect={setSelectedDayItem}
+            />
+            <RainChanceGraph
+              isNightTime={isNightTime}
+              forecastDayItems={forecastDay.items}
+              selectedDayItem={selectedDayItem}
+            />
+          </li>
+        ))}
+      </ul>
     </section>
   )
 }
