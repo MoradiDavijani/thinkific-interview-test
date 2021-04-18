@@ -1,8 +1,6 @@
 namespace OpenWeatherMap {
   type Main = {
     feels_like: number
-    humidity: number
-    pressure: number
     temp: number
   }
 
@@ -13,17 +11,11 @@ namespace OpenWeatherMap {
     description: string
   }
 
-  export type Wind = {
-    deg: number
-    gust: number
-    speed: number
-  }
-
   export type WeatherInfo = {
     dt: number
     main: Main
     weather: [Weather]
-    wind: Wind
+    pop: number
   }
 
   export type WeatherResponse = WeatherInfo

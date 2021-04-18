@@ -2,16 +2,25 @@ import type OpenWeatherMap from './open-weather-map'
 
 export type WeatherInfo = {
   time: number
-  wind: OpenWeatherMap.Wind
   content: OpenWeatherMap.Weather
   feelsLike: number
-  humidity: number
-  pressure: number
   temp: number
+  pop: number
+}
+
+export type City = {
+  id: number
+  name: string
+  country: string
+  sunriseTime: string
+  sunsetTime: string
+  isNightTime: boolean
+  currentWeekDay: string
+  currentMonthDate: string
 }
 
 export type WeatherResponse = {
-  city: OpenWeatherMap.City
+  city: City
   current: WeatherInfo
   forecastItems: Array<WeatherInfo>
 }
