@@ -1,0 +1,22 @@
+{
+  "name": "Weather",
+  "short_name": "Weather",
+  "description": "Weather app provides 5 days weather forecasts and current weather conditions for cities worldwide.",
+  "start_url": "/?source=pwa",
+  "orientation": "landscape",
+  "theme_color": "#f2fbff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/logo-icons/192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-icons/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
