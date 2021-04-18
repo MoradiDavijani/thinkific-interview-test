@@ -1,14 +1,24 @@
 import classnames from 'classnames'
 import styles from './button.module.css'
 
-function Button({
-  className,
-  ...props
-}: React.DetailedHTMLProps<
+type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
->) {
-  return <button {...props} className={classnames(styles.button, className)} />
+> & {
+  variant?: 'link'
+}
+
+function Button({ variant, className, ...props }: ButtonProps) {
+  return (
+    <button
+      {...props}
+      className={classnames(
+        styles.button,
+        { [styles.button_link]: variant === 'link' },
+        className
+      )}
+    />
+  )
 }
 
 export default Button

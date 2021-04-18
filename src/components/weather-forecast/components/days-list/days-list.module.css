@@ -1,0 +1,25 @@
+.daysList {
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  overflow-x: auto;
+}
+
+.daysList::-webkit-scrollbar {
+  display: none;
+}
+
+.daysList::after,
+.daysList::before {
+  content: '';
+  flex: 0 0 2rem;
+}
+
+.daysList__dayItem {
+  width: 5rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}

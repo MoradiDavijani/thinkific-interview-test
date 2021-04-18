@@ -1,0 +1,46 @@
+.dayHours {
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.dayHours::-webkit-scrollbar {
+  display: none;
+}
+
+.dayHours::after,
+.dayHours::before {
+  content: '';
+  flex: 0 0 2rem;
+}
+
+.dayHours__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 1rem 0.5rem;
+  border-radius: 10rem;
+  background-color: var(--accent-color);
+  margin: 0 0.5rem;
+  transition: transform 200ms ease-in-out;
+}
+
+.dayHours__item_selected {
+  transform: translateY(-1rem);
+}
+
+.dayHours__itemIcon {
+  width: 3rem;
+  height: 3rem;
+}
+
+.dayHours__itemValueSection {
+  display: flex;
+}
+
+.dayHours__itemUnit {
+  font-size: 0.75rem;
+}

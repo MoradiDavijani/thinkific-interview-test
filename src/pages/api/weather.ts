@@ -1,11 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import {
-  getTimezoneTime,
-  getTimezoneWeekDay,
-  getTimezoneMonthDate
-} from 'src/helpers/dates'
+  normalizeCityInfo,
+  normalizeForecastList,
+  normalizeWeatherInfo
+} from 'src/helpers/transformers'
 import OpenWeatherMap from 'src/types/open-weather-map'
-import type { City, WeatherInfo } from 'src/types/weather'
 
 const CITY_ID = '6173331' // Vancouver's city id
 const OPEN_WEATHER_API_KEY = process.env.OPEN_WEATHER_API_KEY
@@ -28,32 +27,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   res.status(200).json({
     city: normalizeCityInfo(forecastResponse.city),
     current: normalizeWeatherInfo(weatherResponse),
-    forecastItems: forecastResponse.list.map(normalizeWeatherInfo)
+    forecastDays: normalizeForecastList(
+      forecastResponse.list,
+      forecastResponse.city.timezone
+    )
   })
 }
-
-const normalizeWeatherInfo = ({
-  pop,
-  dt,
-  main,
-  weather
-}: OpenWeatherMap.WeatherInfo): WeatherInfo => ({
-  pop,
-  time: dt,
-  content: weather[0],
-  feelsLike: Math.round(main.feels_like),
-  temp: Math.round(main.temp)
-})
-
-const normalizeCityInfo = (city: OpenWeatherMap.City): City => ({
-  id: city.id,
-  name: city.name,
-  country: city.country,
-  sunriseTime: getTimezoneTime(city.sunrise, city.timezone),
-  sunsetTime: getTimezoneTime(city.sunset, city.timezone),
-  isNightTime: city.sunrise > city.sunset && Date.now() / 1000 < city.sunrise,
-  currentWeekDay: getTimezoneWeekDay(Date.now() / 1000, city.timezone),
-  currentMonthDate: getTimezoneMonthDate(Date.now() / 1000, city.timezone)
-})
 
 export default handler

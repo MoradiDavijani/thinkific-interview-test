@@ -1,11 +1,9 @@
 import type OpenWeatherMap from './open-weather-map'
 
 export type WeatherInfo = {
-  time: number
   content: OpenWeatherMap.Weather
   feelsLike: number
   temp: number
-  pop: number
 }
 
 export type City = {
@@ -19,8 +17,20 @@ export type City = {
   currentMonthDate: string
 }
 
+export type ForecastDayItem = {
+  time: string
+  content: OpenWeatherMap.Weather
+  temp: number
+  pop: number
+}
+
+export type ForecastDay = {
+  title: string
+  items: Array<ForecastDayItem>
+}
+
 export type WeatherResponse = {
   city: City
   current: WeatherInfo
-  forecastItems: Array<WeatherInfo>
+  forecastDays: Array<ForecastDay>
 }

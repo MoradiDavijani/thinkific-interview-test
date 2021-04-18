@@ -25,6 +25,15 @@ function getDateWithOffset(unixTime: number, offsetInSeconds: number): Date {
   )
 }
 
+export function getTimezoneHour(
+  unixTime: number,
+  offsetInSeconds: number
+): string {
+  const dateWithOffset = getDateWithOffset(unixTime, offsetInSeconds)
+  const hour = dateWithOffset.getHours()
+  return `${hour > 12 ? hour - 12 : hour}${hour < 12 ? 'AM' : 'PM'}`
+}
+
 export function getTimezoneTime(
   unixTime: number,
   offsetInSeconds: number
