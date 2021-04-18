@@ -1,3 +1,17 @@
+/* Variables */
+:root {
+  --primary-color: #f2fbff;
+  --accent-color: #d1e4f7;
+  --font-color: #424242;
+}
+
+[data-theme='dark'] {
+  --primary-color: #11113a;
+  --accent-color: #313061;
+  --font-color: #ffffff;
+}
+
+/* Global Styles */
 html,
 body,
 div#__next {
@@ -16,4 +30,5 @@ a {
 
 * {
   box-sizing: border-box;
+  color: var(--font-color);
 }

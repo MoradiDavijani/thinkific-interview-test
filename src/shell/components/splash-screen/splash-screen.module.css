@@ -1,0 +1,27 @@
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  transition: opacity 300ms 100ms linear;
+  z-index: 1000;
+}
+
+.splash_hidden {
+  opacity: 0;
+}
+
+.splash__logo {
+  width: 30%;
+  margin-bottom: 5rem;
+}
+
+.splash__status {
+  height: 10rem;
+}
