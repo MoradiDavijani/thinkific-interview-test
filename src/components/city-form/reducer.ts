@@ -1,4 +1,4 @@
-import { WeatherResponse } from 'src/types/weather'
+import OpenWeatherMap from 'src/types/open-weather-map'
 
 type ReducerAction =
   | {
@@ -6,32 +6,23 @@ type ReducerAction =
     }
   | {
       type: 'success'
-      payload: WeatherResponse
+      payload: Array<OpenWeatherMap.CityGeo>
     }
   | {
       type: 'fail'
     }
 
-export type WeatherContextState =
-  | {
-      data: null
-      isLoading: boolean
-      isFailed: boolean
-    }
-  | {
-      data: WeatherResponse
-      isLoading: false
-      isFailed: false
-    }
+export type CitiesState = {
+  data: Array<OpenWeatherMap.CityGeo>
+  isLoading: boolean
+  isFailed: boolean
+}
 
-function reducer(
-  state: WeatherContextState,
-  action: ReducerAction
-): WeatherContextState {
+function reducer(state: CitiesState, action: ReducerAction): CitiesState {
   switch (action.type) {
     case 'init':
       return {
-        data: null,
+        ...state,
         isLoading: true,
         isFailed: false
       }
@@ -43,7 +34,7 @@ function reducer(
       }
     case 'fail':
       return {
-        data: null,
+        ...state,
         isLoading: false,
         isFailed: true
       }

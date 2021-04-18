@@ -8,7 +8,8 @@
   cursor: pointer;
 }
 
-.button_link {
+.button_link,
+.button_icon {
   background-color: transparent;
   padding: 0.5rem;
 }

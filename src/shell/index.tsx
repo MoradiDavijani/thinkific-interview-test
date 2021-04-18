@@ -1,6 +1,5 @@
 import React from 'react'
 import useWeather from 'src/stores/weather'
-import { WeatherResponse } from 'src/types/weather'
 import CommonMetaTags from './components/common-meta-tags'
 import Header from './components/header'
 import SplashScreen from './components/splash-screen'
@@ -11,7 +10,7 @@ type ShellProps = {
 }
 
 function Shell({ children }: ShellProps) {
-  const { data, isLoading, isFailed } = useWeather()
+  const { data, isLoading, isFailed, recentCities } = useWeather()
 
   React.useEffect(() => {
     const isDark = data ? data.city.isNightTime : false
@@ -21,7 +20,10 @@ function Shell({ children }: ShellProps) {
   return (
     <>
       <CommonMetaTags />
-      <SplashScreen isLoading={isLoading} isFailed={isFailed} />
+      <SplashScreen
+        isLoading={recentCities.length > 0 && isLoading}
+        isFailed={isFailed}
+      />
       <Header />
       <main className={styles.main}>{children}</main>
     </>

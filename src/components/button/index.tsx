@@ -5,7 +5,7 @@ type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > & {
-  variant?: 'link'
+  variant?: 'link' | 'icon'
 }
 
 function Button({ variant, className, ...props }: ButtonProps) {
@@ -15,6 +15,7 @@ function Button({ variant, className, ...props }: ButtonProps) {
       className={classnames(
         styles.button,
         { [styles.button_link]: variant === 'link' },
+        { [styles.button_icon]: variant === 'icon' },
         className
       )}
     />

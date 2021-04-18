@@ -10,7 +10,6 @@
   grid-template-areas:
     'weather-icon today'
     'weather-icon date';
-  margin-bottom: 1rem;
 }
 
 .currentWeather__weatherIcon {
@@ -34,7 +33,6 @@
 
 .currentWeather__valueSection {
   display: flex;
-  margin-bottom: 1rem;
 }
 
 .currentWeather__value {
@@ -49,7 +47,10 @@
 
 .currentWeather__city {
   font-size: 1rem;
-  margin-bottom: 1rem;
+}
+
+.currentWeather__cityEditButton {
+  margin-left: 0.5rem;
 }
 
 .currentWeather__moreInfo {

@@ -2,13 +2,15 @@ import React from 'react'
 import type { WeatherResponse } from 'src/types/weather'
 import styles from './current-weather.module.css'
 import Circle from '../circle'
+import Button from '../button'
 
 type CurrentWeatherProps = {
   city: WeatherResponse['city']
   weather: WeatherResponse['current']
+  onEditCity: () => void
 }
 
-function CurrentWeather({ city, weather }: CurrentWeatherProps) {
+function CurrentWeather({ city, weather, onEditCity }: CurrentWeatherProps) {
   return (
     <section className={styles.currentWeather}>
       <div className={styles.currentWeather__header}>
@@ -28,6 +30,13 @@ function CurrentWeather({ city, weather }: CurrentWeatherProps) {
       </div>
       <div className={styles.currentWeather__city}>
         {city.name}, {city.country}
+        <Button
+          variant="icon"
+          onClick={onEditCity}
+          className={styles.currentWeather__cityEditButton}
+        >
+          ✎
+        </Button>
       </div>
       <div className={styles.currentWeather__moreInfo}>
         <span>Feels like {weather.feelsLike}</span>

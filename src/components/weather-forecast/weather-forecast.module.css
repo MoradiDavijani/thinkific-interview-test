@@ -42,7 +42,7 @@
     background-color: var(--secondary-color);
     border-radius: 1rem;
     padding: 1rem;
-    box-shadow: 2px 2px 0.5rem 0 var(--font-color);
+    box-shadow: var(--card-shadow);
   }
 
   .weatherForecast__dayItemTitle {

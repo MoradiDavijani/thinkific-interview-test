@@ -34,3 +34,7 @@ export type WeatherResponse = {
   current: WeatherInfo
   forecastDays: Array<ForecastDay>
 }
+
+export type CitiesResponse = {
+  items: Array<OpenWeatherMap.CityGeo>
+}

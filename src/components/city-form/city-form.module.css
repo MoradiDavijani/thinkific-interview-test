@@ -1,0 +1,35 @@
+.cityForm {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: var(--secondary-color);
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+  margin: 0 1rem 1rem;
+  padding: 1rem;
+}
+
+.cityForm__input {
+  margin: 1rem 0;
+}
+
+.cityForm__itemsList {
+  overflow: auto;
+  border-top: 1px solid var(--border-color);
+}
+
+.cityForm__item {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cityForm__itemButton {
+  height: 4rem;
+  width: 100%;
+}
+
+@media (min-width: 48rem) {
+  .cityForm {
+    width: 30rem;
+    margin: 0 auto 1rem;
+  }
+}

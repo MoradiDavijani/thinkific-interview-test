@@ -29,6 +29,13 @@ namespace OpenWeatherMap {
     timezone: number
   }
 
+  export type CityGeo = {
+    lat: number
+    lon: number
+    name: string
+    country: string
+  }
+
   export type ForecastResponse = {
     cod: number
     city: City

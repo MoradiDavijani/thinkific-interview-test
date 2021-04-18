@@ -16,11 +16,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   ] = await Promise.all([
     // Get 5 day forecast
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?id=${CITY_ID}&units=metric&appid=${OPEN_WEATHER_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${req.query.q}&lat=${req.query.lat}&lon=${req.query.lon}&units=metric&appid=${OPEN_WEATHER_API_KEY}`
     ).then(response => response.json()),
     // Get current weather
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&units=metric&appid=${OPEN_WEATHER_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${req.query.q}&lat=${req.query.lat}&lon=${req.query.lon}&units=metric&appid=${OPEN_WEATHER_API_KEY}`
     ).then(response => response.json())
   ])
 

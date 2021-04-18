@@ -4,13 +4,17 @@
   --secondary-color: #ffffff;
   --accent-color: #d1e4f7;
   --font-color: #424242;
+  --border-color: #d8d8d8;
+  --card-shadow: 2px 2px 0.5rem 0 #969696;
 }
 
 [data-theme='dark'] {
   --primary-color: #11113a;
-  --secondary-color: #121212;
+  --secondary-color: #242424;
   --accent-color: #313061;
   --font-color: #ffffff;
+  --border-color: #d8d8d8;
+  --card-shadow: 2px 2px 0.5rem 0 #848484;
 }
 
 /* Global Styles */

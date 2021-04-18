@@ -19,6 +19,8 @@ function SplashScreen({ isLoading, isFailed }: SplashScreenProps) {
       const timeoutId = setTimeout(() => setIsHidden(true), 400)
 
       return () => clearTimeout(timeoutId)
+    } else {
+      setIsHidden(false)
     }
   }, [isLoading, isFailed])
 
