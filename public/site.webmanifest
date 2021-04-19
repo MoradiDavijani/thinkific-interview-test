@@ -3,7 +3,7 @@
   "short_name": "Weather",
   "description": "Weather app provides 5 days weather forecasts and current weather conditions for cities worldwide.",
   "start_url": "/?source=pwa",
-  "orientation": "landscape",
+  "orientation": "portrait",
   "theme_color": "#f2fbff",
   "background_color": "#ffffff",
   "display": "standalone",
